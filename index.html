@@ -5,141 +5,320 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ember Ridge Counseling</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</nav>
+
+*{
 margin:0;
-font-family:Arial,sans-serif;
-background:#f8f8f8;
-color:#333;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-header{
-height:100vh;
-background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
-url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
-background-size:cover;
-background-position:center;
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8fafc;
+color:#1e293b;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(15,23,42,.95);
+padding:18px 8%;
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-text-align:center;
+z-index:1000;
+}
+
+.logo{
 color:white;
+font-size:1.3rem;
+font-weight:700;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+nav a:hover{
+color:#f59e0b;
 }
 
 .hero{
-max-width:800px;
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 padding:20px;
 }
 
-.hero h1{
-font-size:3rem;
+.hero-content{
+max-width:850px;
+color:white;
+}
+
+.hero-content h1{
+font-size:4rem;
 margin-bottom:20px;
 }
 
-.hero p{
+.hero-content p{
 font-size:1.2rem;
-line-height:1.6;
+line-height:1.8;
+margin-bottom:30px;
 }
 
 .btn{
 display:inline-block;
-margin-top:20px;
-padding:14px 28px;
-background:#d97706;
+background:#f59e0b;
 color:white;
+padding:15px 30px;
+border-radius:50px;
 text-decoration:none;
-border-radius:30px;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
 }
 
 section{
-padding:80px 10%;
+padding:100px 10%;
+}
+
+.section-title{
 text-align:center;
+font-size:2.5rem;
+margin-bottom:50px;
 }
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:40px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.about{
+max-width:900px;
+margin:auto;
+text-align:center;
+line-height:1.8;
+font-size:1.1rem;
+}
+
+.contact{
+background:#1e293b;
+color:white;
+text-align:center;
+}
+
+.contact p{
+margin:15px 0;
+font-size:1.1rem;
 }
 
 footer{
-background:#1e293b;
+background:#0f172a;
 color:white;
-padding:30px;
 text-align:center;
+padding:25px;
 }
-</style>
 
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:2.7rem;
+}
+
+nav{
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-<div class="hero">
-<h1>Ember Ridge Counseling</h1>
+<nav>
+<div class="logo">Ember Ridge Counseling</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>Helping You Find Strength, Clarity, and Hope</h1>
+
 <p>
-Helping teens, families, and individuals find strength,
-clarity, and hope.
+Compassionate counseling support for teens,
+families, and individuals navigating life's
+challenges.
 </p>
 
-<a href="#services" class="btn">
-Learn More
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd2swlALcrBwYS5r2LH0iMPosHZClOtuKYivSvWTz_9rzH-_Q/viewform?usp=publish-editor">
+Request Information
 </a>
-</div>
-</header>
 
-<section id="services">
-<h2>Our Services</h2>
+</div>
+
+</section>
+
+<section id="services" class="reveal">
+
+<h2 class="section-title">Our Services</h2>
 
 <div class="cards">
 
 <div class="card">
 <h3>Teen Counseling</h3>
-<p>Support for stress, anxiety, school challenges, and self-esteem.</p>
+<p>
+Support for anxiety, school stress,
+relationships, confidence, and personal growth.
+</p>
 </div>
 
 <div class="card">
 <h3>Family Counseling</h3>
-<p>Strengthening communication and family relationships.</p>
+<p>
+Strengthening communication and building
+healthier family relationships.
+</p>
 </div>
 
 <div class="card">
-<h3>Individual Therapy</h3>
-<p>Helping clients navigate life's challenges and transitions.</p>
+<h3>Individual Counseling</h3>
+<p>
+Helping individuals navigate life's challenges,
+transitions, and emotional wellness.
+</p>
 </div>
 
 </div>
+
 </section>
 
-<section>
-<h2>About Ember Ridge</h2>
+<section id="about" class="reveal">
+
+<h2 class="section-title">About Ember Ridge</h2>
+
+<div class="about">
 
 <p>
-At Ember Ridge Counseling, we believe every person has the
-ability to grow through challenges and build a meaningful future.
+At Ember Ridge Counseling, we believe growth
+happens when people feel heard, understood,
+and supported. Our goal is to provide a
+welcoming environment where clients can
+develop confidence, resilience, and healthy
+coping skills.
 </p>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact reveal">
+
+<h2 class="section-title">Get Started</h2>
+
+<p>
+Interested in learning more?
+</p>
+
+<p>
+Click below to request information.
+</p>
+
+<br>
+
+<a class="btn" href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE">
+Request Information
+</a>
+
 </section>
 
 <footer>
-<p>© 2026 Ember Ridge Counseling</p>
+
+© 2026 Ember Ridge Counseling
+
 </footer>
+
+<script>
+
+window.addEventListener("scroll", () => {
+
+document.querySelectorAll(".reveal").forEach(el => {
+
+if(el.getBoundingClientRect().top < window.innerHeight - 100){
+
+el.classList.add("active");
+
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
